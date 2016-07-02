@@ -22,7 +22,7 @@ public class MyIO {
 		 * outputFile, readSize);
 		 */
 
-		doFile("D:/aaa/bbb/ccc","ddd.txt");
+		doFile("D:/aaa/bbb/ccc", "ddd.txt");
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class MyIO {
 			file.mkdirs();
 		}
 		try {
-			boolean createNewFile = new File(file,fileName).createNewFile();
+			boolean createNewFile = new File(file, fileName).createNewFile();
 			System.out.println(createNewFile);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -82,11 +82,25 @@ public class MyIO {
 	 */
 	private static void release(InputStream in, OutputStream out) {
 		try {
-			in.close();                                                                                                                 
+			in.close();
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * É¾³ýÎÄ¼þ
+	 * @param file
+	 * @return
+	 */
+	private static boolean delete(File file) {
+
+		boolean isExists = file.exists();
+		if (!isExists) {
+			return false;
+		}
+		boolean isDelete = file.delete();
+		return isDelete;
+	}
 }
